@@ -1,3 +1,4 @@
+/* Базовые стили */
 * {
   box-sizing: border-box;
 }
@@ -11,6 +12,7 @@ body {
   color: #333;
 }
 
+/* Макет страницы */
 .main-layout {
   display: flex;
   min-height: 100vh;
@@ -20,6 +22,7 @@ body {
   padding: 20px;
 }
 
+/* Контейнер основного контента */
 .container {
   flex: 1;
   max-width: 800px;
@@ -31,6 +34,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* Заголовки и текст */
 .header {
   text-align: center;
   margin-bottom: 40px;
@@ -53,6 +57,28 @@ h1 {
   font-weight: 400;
 }
 
+.intro-text {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  padding: 0 5px;
+}
+
+.benefits-list {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 65px;
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.benefits-list li {
+  margin-bottom: 8px;
+}
+
+/* Форма */
 .form {
   display: flex;
   flex-direction: column;
@@ -123,6 +149,7 @@ textarea::placeholder {
   transform: translateY(0);
 }
 
+/* Загрузка и вывод */
 .loading {
   display: flex;
   align-items: center;
@@ -156,7 +183,7 @@ textarea::placeholder {
 }
 
 .output {
-  background: linear-gradient(45deg, #e8f5e8, #e3f2fd);
+  background: white;
   border-radius: 0 0 16px 16px;
   overflow: hidden;
   border: 1px solid #bbdefb;
@@ -166,10 +193,7 @@ textarea::placeholder {
   line-height: 1.6;
   font-size: 15px;
   color: #263238;
-  background: white;
   margin-top: 0;
-  border-top: none;
-  border-radius: 0 0 16px 16px;
 }
 
 .output-header {
@@ -205,16 +229,7 @@ textarea::placeholder {
   transform: scale(1.05);
 }
 
-.output-text {
-  padding: 24px;
-  white-space: pre-line;
-  line-height: 1.6;
-  font-size: 15px;
-  color: #263238;
-  background: white;
-}
-
-/* Боковые блоки рекламы */
+/* Боковые рекламные блоки */
 .ad-sidebar {
   width: 200px;
   display: flex;
@@ -243,31 +258,7 @@ textarea::placeholder {
   align-items: center;
 }
 
-.ad-content p {
-  color: #546e7a;
-  font-weight: 500;
-  margin: 0 0 15px 0;
-}
-
-.yandex-ad-placeholder {
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 14px;
-  border: 1px solid #ddd;
-}
-
-.yandex-ad-placeholder::before {
-  content: "Место для рекламы Яндекс.Директ";
-  text-align: center;
-}
-
-/* Подвал */
+/* Футер */
 .footer {
   background: rgba(255, 255, 255, 0.9);
   padding: 30px 20px;
@@ -284,28 +275,7 @@ textarea::placeholder {
   padding: 20px;
   border: 2px dashed #bbdefb;
   border-radius: 12px;
-}
-
-.footer-ad p {
-  color: #546e7a;
-  font-weight: 500;
-  margin: 0 0 15px 0;
-}
-
-.yandex-ad-horizontal {
-  height: 100px;
-  background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 14px;
-  border: 1px solid #ddd;
-}
-
-.yandex-ad-horizontal::before {
-  content: "Горизонтальный блок Яндекс.Директ";
+  display: block;
 }
 
 /* Адаптивность */
@@ -314,33 +284,17 @@ textarea::placeholder {
     flex-direction: column;
     padding: 15px;
   }
-  
   .ad-sidebar {
     width: 100%;
     order: 0;
   }
-  
-  .left-ad {
-    order: 0;
-  }
-  
-  .right-ad {
-    order: 2;
-  }
-  
-  .container {
-    order: 1;
-  }
-  
+  .left-ad { order: 0; }
+  .right-ad { order: 2; }
+  .container { order: 1; }
   .ad-content {
     min-height: 120px;
     flex-direction: row;
     gap: 20px;
-  }
-  
-  .yandex-ad-placeholder {
-    height: 100px;
-    flex: 1;
   }
 }
 
@@ -349,50 +303,31 @@ textarea::placeholder {
     padding: 20px;
     margin: 10px;
   }
-  
-  h1 {
-    font-size: 1.8em;
-  }
-  
-  .subtitle {
-    font-size: 1em;
-  }
-  
-  textarea {
-    min-height: 100px;
-  }
-  
+  h1 { font-size: 1.8em; }
+  .subtitle { font-size: 1em; }
+  textarea { min-height: 100px; }
   .output-header {
     flex-direction: column;
     gap: 10px;
     text-align: center;
   }
-  
-  .main-layout {
-    padding: 10px;
-  }
+  .main-layout { padding: 10px; }
+}
 
-
-/* === Начало блока управления рекламой === */
+/* === БЛОК УПРАВЛЕНИЯ РЕКЛАМОЙ === */
 
 /* 1) Скрываем мобильный баннер всегда */
 .ad-mobile-only {
   display: none !important;
 }
 
-/* 2) На десктопе (широкие экраны) прячем ничего дополнительно, мобильный скрыт из пункта 1 */
+/* 2) Десктоп (min-width:769px): показываем боковые и футер */
 @media (min-width: 769px) {
-  .ad-mobile-only {
-    display: none !important;
-  }
-  .left-ad,
-  .right-ad,
-  .footer-ad {
-    display: block !important;
-  }
+  .ad-mobile-only { display: none !important; }
+  .left-ad, .right-ad, .footer-ad { display: block !important; }
 }
 
-/* 3) На мобилках (узкие экраны) показываем мобильный и прячем боковые */
+/* 3) Мобила (max-width:768px): показываем мобильный и футер, прячем боковые */
 @media (max-width: 768px) {
   .ad-mobile-only {
     display: block !important;
@@ -402,16 +337,10 @@ textarea::placeholder {
     max-height: 100px;
     overflow: hidden;
   }
-  .left-ad,
-  .right-ad {
-    display: none !important;
+  .ad-mobile-only > div {
+    width: 100% !important;
+    height: auto !important;
   }
-  /* .footer-ad оставляем как есть, если нужно */
-}
-
-/* === Конец блока управления рекламой === */
-
-
-
-
+  .left-ad, .right-ad { display: none !important; }
+  /* footer-ad остаётся видимым */
 }

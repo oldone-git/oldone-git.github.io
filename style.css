@@ -372,32 +372,44 @@ textarea::placeholder {
     padding: 10px;
   }
 
-/* Вставьте это в самый конец style.css */
+  /* === В КОНЦЕ style.css === */
+
+/* 1. По умолчанию — мобильный узкий баннер скрыт, боковые и футерные показываются */
 .ad-mobile-only {
   display: none !important;
 }
+.left-ad,
+.right-ad,
+.footer-ad {
+  display: block; /* или flex/inline‑block — как у вас изначально */
+}
 
+/* 2. На мобильных (≤768px): показываем только .ad-mobile-only и .footer-ad, прячем боковые */
 @media (max-width: 768px) {
+  /* Мобильный узкий баннер */
   .ad-mobile-only {
     display: block !important;
     margin: 1rem auto;
-    padding: 0;            /* Убираем лишние отступы вокруг */
-    max-width: 320px;      /* Ширина баннера */
-    max-height: 100px;     /* Высота баннера */
-    overflow: hidden;      /* Обрезаем, если баннер выше */
+    padding: 0;
+    max-width: 320px;
+    max-height: 100px;
+    overflow: hidden;
   }
-
   .ad-mobile-only > div {
-    width: 100% !important; /* Заставим вложенный контейнер растягиваться в пределах max-width */
+    width: 100% !important;
     height: auto !important;
   }
 
+  /* Прячем только боковые */
   .left-ad,
   .right-ad {
     display: none !important;
   }
+
+  /* Футерный баннер оставляем видимым */
+  .footer-ad {
+    display: block !important;
+  }
 }
 
-
-  
 }

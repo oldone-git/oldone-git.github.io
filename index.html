@@ -53,11 +53,28 @@ window.yaContextCb.push(() => {
 })
 </script>
 
+
       </div>
     </div>
 
     <!-- Основной контент -->
     <div class="container">
+
+  <!-- Здесь вставляем мобильный баннер -->
+  <div class="ad-mobile-only">
+    <!-- Yandex.RTB R-A-15924541-2 -->
+    <div id="yandex_rtb_R-A-15924541-2"></div>
+    <script>
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          "blockId": "R-A-15924541-2",
+          "renderTo": "yandex_rtb_R-A-15924541-2"
+        });
+      });
+    </script>
+  </div>
+
+      
       <header class="header">
         <h1>Генератор ответа на обращение (ЖКХ)</h1>
         <p class="subtitle">Быстрое создание профессиональных ответов</p>

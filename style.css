@@ -372,21 +372,32 @@ textarea::placeholder {
     padding: 10px;
   }
 
+/* Вставьте это в самый конец style.css */
 .ad-mobile-only {
   display: none !important;
 }
 
-/* На экранах ≤768px показываем мобильный и прячем боковые */
 @media (max-width: 768px) {
   .ad-mobile-only {
     display: block !important;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    padding: 0;            /* Убираем лишние отступы вокруг */
+    max-width: 320px;      /* Ширина баннера */
+    max-height: 100px;     /* Высота баннера */
+    overflow: hidden;      /* Обрезаем, если баннер выше */
   }
+
+  .ad-mobile-only > div {
+    width: 100% !important; /* Заставим вложенный контейнер растягиваться в пределах max-width */
+    height: auto !important;
+  }
+
   .left-ad,
   .right-ad {
     display: none !important;
   }
 }
+
 
   
 }

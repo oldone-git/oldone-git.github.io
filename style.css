@@ -373,13 +373,13 @@ textarea::placeholder {
   }
 
 .ad-mobile-only {
-  display: none;
+  display: none !important;
 }
 
-/* На экранах до 768px: показываем мобильный баннер и прячем боковые */
+/* На экранах ≤768px показываем мобильный и прячем боковые */
 @media (max-width: 768px) {
   .ad-mobile-only {
-    display: block;
+    display: block !important;
     margin: 1rem 0;
   }
   .left-ad,

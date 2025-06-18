@@ -372,21 +372,28 @@ textarea::placeholder {
     padding: 10px;
   }
 
-  /* === В КОНЦЕ style.css === */
 
-/* 1. По умолчанию — мобильный узкий баннер скрыт, боковые и футерные показываются */
+/* === Начало блока управления рекламой === */
+
+/* 1) Скрываем мобильный баннер всегда */
 .ad-mobile-only {
   display: none !important;
 }
-.left-ad,
-.right-ad,
-.footer-ad {
-  display: block; /* или flex/inline‑block — как у вас изначально */
+
+/* 2) На десктопе (широкие экраны) прячем ничего дополнительно, мобильный скрыт из пункта 1 */
+@media (min-width: 769px) {
+  .ad-mobile-only {
+    display: none !important;
+  }
+  .left-ad,
+  .right-ad,
+  .footer-ad {
+    display: block !important;
+  }
 }
 
-/* 2. На мобильных (≤768px): показываем только .ad-mobile-only и .footer-ad, прячем боковые */
+/* 3) На мобилках (узкие экраны) показываем мобильный и прячем боковые */
 @media (max-width: 768px) {
-  /* Мобильный узкий баннер */
   .ad-mobile-only {
     display: block !important;
     margin: 1rem auto;
@@ -395,21 +402,16 @@ textarea::placeholder {
     max-height: 100px;
     overflow: hidden;
   }
-  .ad-mobile-only > div {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Прячем только боковые */
   .left-ad,
   .right-ad {
     display: none !important;
   }
-
-  /* Футерный баннер оставляем видимым */
-  .footer-ad {
-    display: block !important;
-  }
+  /* .footer-ad оставляем как есть, если нужно */
 }
+
+/* === Конец блока управления рекламой === */
+
+
+
 
 }
